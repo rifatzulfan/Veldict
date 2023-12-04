@@ -1,1 +1,2 @@
-# Veldict run with  npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+# Veldict 
+run with  npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
