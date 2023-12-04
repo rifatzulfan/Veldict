@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #de5013;
+    /* ... */
+  }
+}
+
+@layer components {
+  /* This won't be included in your compiled CSS unless you actually use it */
+  .click span {
+    margin-left: 1px;
+    margin-top: 3px;
+    z-index: 999;
+    position: absolute;
+  }
+
+  span:hover {
+    opacity: 0.8;
+  }
+
+  span:active {
+    transform: scale(0.93, 0.93) translateY(2px);
+  }
+
+
+
+  .active span,
+  .active-2 span {
+    color: #f52755 !important;
+  }
+
+  .active-2 .ring {
+    width: 58px !important;
+    height: 58px !important;
+    top: -10px !important;
+    left: -10px !important;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 1 !important;
+  }
+
+  .active-2 .ring {
+    background: #f52755 !important;
+  }
+
+  .active-2 .ring2 {
+    background: #fff !important;
+  }
+
+  .active-3 .ring2 {
+    width: 60px !important;
+    height: 60px !important;
+    top: -11px !important;
+    left: -11px !important;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 1 !important;
+  }
+
+  .click {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.4);
+    width: 26px;
+    height: 26px;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+  }
+
+  * {
+    transition: all 0.32s ease;
+  }
+}
