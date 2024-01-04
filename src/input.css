@@ -25,9 +25,6 @@
   span:active {
     transform: scale(0.93, 0.93) translateY(2px);
   }
-
-
-
   .active span,
   .active-2 span {
     color: #f52755 !important;
@@ -74,4 +71,6 @@
   * {
     transition: all 0.32s ease;
   }
+
+  
 }

@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.css"
+    />
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
     <script>
       $(function () {
         $("#datepicker").datepicker();
@@ -31,6 +30,19 @@
       rel="stylesheet"
       href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
+    <style>
+      .accordion__content {
+        max-height: 0em;
+        transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+      }
+      input[name="panel"]:not(:checked) ~ .accordion__content {
+        max-height: 50em;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        z-index: 10;
+      }
+    </style>
 
     <title>Project Tailwind dengan NPM</title>
   </head>
@@ -41,246 +53,29 @@
           <img src="img/logo.svg" alt="" />
         </div>
         <ul class="flex gap-5 py-4 px-8 border rounded-full border-slate-200">
+          <li><a href="#" class="text-base text-gray-400">Home</a></li>
           <li>
-            <a
-              href="#"
-              class="text-base font-semibold text-colors-orange-custom"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="explore.html" class="text-base text-gray-400">Explore</a>
+            <a href="#" class="text-base text-gray-400">Explore</a>
           </li>
         </ul>
         <div class="flex gap-3">
           <a class="rounded-full p-4 border cursor-pointer border-slate-200">
-            <img src="img/search.svg" alt="search" />
+            <img src="img/search.svg" alt="" />
           </a>
           <a class="rounded-full p-4 border cursor-pointer border-slate-200">
-            <img src="img/heart.svg" alt="favorite" />
+            <img src="img/heart.svg" alt="" />
           </a>
           <a
             class="rounded-full px-8 py-4 cursor-pointer bg-colors-orange-custom text-white"
-            onclick="toggleModal()"
           >
             Login
           </a>
-
-          <div
-            class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden"
-            id="modal"
-          >
-            <div
-              class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-            >
-              <div class="fixed inset-0 transition-opacity">
-                <div class="absolute inset-0 bg-gray-900 opacity-75" />
-              </div>
-              <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-                >&#8203;</span
-              >
-              <div
-                class="inline-block align-center bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="modal-headline"
-              >
-                <div class="bg-white px-6 py-8 sm:p-6 sm:pb-4">
-                  <div class="flex gap-2 items-center justify-between mb-8">
-                    <img
-                      src="img/back.svg"
-                      class="cursor-pointer"
-                      onclick="toggleModal()"
-                      alt="back"
-                    />
-                    <h6 class="text-center text-2xl font-semibold w-full">
-                      Welcome Back
-                    </h6>
-                  </div>
-
-                  <form
-                    class="text-sm rounded w-full max-w-xs mx-auto my-8 px-8 pt-8 pb-8"
-                  >
-                
-                    </div>
-                  </form>
-                </div>
-                <!-- <div class="bg-gray-200 px-4 py-3 text-right">
-                  <button
-                    type="button"
-                    class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
-                    onclick="toggleModal()"
-                  >
-                    <i class="fas fa-times"></i> Cancel
-                  </button>
-                  <button
-                    type="button"
-                    class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
-                  >
-                    <i class="fas fa-plus"></i> Create
-                  </button>
-                </div> -->
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
 
-    <div id="hero-section" class="container mx-auto my-24 relative">
-      <div
-        class="bg-cover bg-center bg-slate-950/20 px-32 py-40 rounded-2xl"
-        style="background-image: url('img/hero.png'); height: 450px"
-      >
-        <div class="title">
-          <h1 class="text-white text-5xl font-bold text-center mb-4">
-            Discover your destination with us
-          </h1>
-          <p class="text-white text-lg text-center">
-            Explore various tourists attraction for your vacation!
-          </p>
-        </div>
-      </div>
-      <div class="flex justify-center w-full -bottom-16 absolute">
-        <div class="form rounded-full bg-white p-5">
-          <form
-            action="#"
-            method="post"
-            class="flex px-6 py-5 border-gray-200 border rounded-full gap-3"
-          >
-            <input
-              type="text"
-              style="width: 240px"
-              placeholder="Search destination, nature, or attraction"
-              class="py-3 px-5 rounded-full focus:ring-1 focus:ring-colors-orange-custom outline-none"
-            />
-            <div class="relative inline-block">
-              <input
-                id="datepicker"
-                type="text"
-                class="py-3 px-5 rounded-full focus:ring-1 focus:ring-colors-orange-custom border outline-none border-gray-200"
-                style="width: 240px"
-                placeholder="Enter your desired date"
-              />
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style="
-                  position: absolute;
-                  right: 16px;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  cursor: pointer;
-                "
-              >
-                <path
-                  d="M7.872 13.4955C8.16977 13.4955 8.45535 13.3772 8.6659 13.1667C8.87646 12.9561 8.99475 12.6705 8.99475 12.3727C8.99475 12.075 8.87646 11.7894 8.6659 11.5788C8.45535 11.3683 8.16977 11.25 7.872 11.25C7.57423 11.25 7.28865 11.3683 7.0781 11.5788C6.86754 11.7894 6.74925 12.075 6.74925 12.3727C6.74925 12.6705 6.86754 12.9561 7.0781 13.1667C7.28865 13.3772 7.57423 13.4955 7.872 13.4955ZM8.9955 16.1235C8.9955 16.4213 8.87721 16.7068 8.66665 16.9174C8.4561 17.128 8.17052 17.2463 7.87275 17.2463C7.57498 17.2463 7.2894 17.128 7.07885 16.9174C6.86829 16.7068 6.75 16.4213 6.75 16.1235C6.75 15.8257 6.86829 15.5402 7.07885 15.3296C7.2894 15.119 7.57498 15.0007 7.87275 15.0007C8.17052 15.0007 8.4561 15.119 8.66665 15.3296C8.87721 15.5402 8.9955 15.8257 8.9955 16.1235ZM12 13.494C12.2976 13.494 12.583 13.3758 12.7934 13.1654C13.0038 12.955 13.122 12.6696 13.122 12.372C13.122 12.0744 13.0038 11.789 12.7934 11.5786C12.583 11.3682 12.2976 11.25 12 11.25C11.7022 11.25 11.4167 11.3683 11.2061 11.5788C10.9955 11.7894 10.8773 12.075 10.8773 12.3727C10.8773 12.6705 10.9955 12.9561 11.2061 13.1667C11.4167 13.3772 11.7022 13.494 12 13.494ZM13.1235 16.122C13.1235 16.4198 13.0052 16.7053 12.7947 16.9159C12.5841 17.1265 12.2985 17.2448 12.0007 17.2448C11.703 17.2448 11.4174 17.1265 11.2068 16.9159C10.9963 16.7053 10.878 16.4198 10.878 16.122C10.878 15.8242 10.9963 15.5387 11.2068 15.3281C11.4174 15.1175 11.703 14.9993 12.0007 14.9993C12.2985 14.9993 12.5841 15.1175 12.7947 15.3281C13.0052 15.5387 13.1235 15.8242 13.1235 16.122ZM16.1235 13.494C16.4213 13.494 16.7068 13.3757 16.9174 13.1652C17.128 12.9546 17.2463 12.669 17.2463 12.3713C17.2463 12.0735 17.128 11.7879 16.9174 11.5773C16.7068 11.3668 16.4213 11.2485 16.1235 11.2485C15.8257 11.2485 15.5402 11.3668 15.3296 11.5773C15.119 11.7879 15.0007 12.0735 15.0007 12.3713C15.0007 12.669 15.119 12.9546 15.3296 13.1652C15.5402 13.3757 15.8257 13.494 16.1235 13.494ZM21 6.75C21 5.75544 20.6049 4.80161 19.9016 4.09835C19.1984 3.39509 18.2446 3 17.25 3H6.75C5.75544 3 4.80161 3.39509 4.09835 4.09835C3.39509 4.80161 3 5.75544 3 6.75V17.25C3 18.2446 3.39509 19.1984 4.09835 19.9016C4.80161 20.6049 5.75544 21 6.75 21H17.25C18.2446 21 19.1984 20.6049 19.9016 19.9016C20.6049 19.1984 21 18.2446 21 17.25V6.75ZM4.5 9H19.5V17.25C19.5 17.8467 19.2629 18.419 18.841 18.841C18.419 19.2629 17.8467 19.5 17.25 19.5H6.75C6.15326 19.5 5.58097 19.2629 5.15901 18.841C4.73705 18.419 4.5 17.8467 4.5 17.25V9ZM6.75 4.5H17.25C17.8467 4.5 18.419 4.73705 18.841 5.15901C19.2629 5.58097 19.5 6.15326 19.5 6.75V7.5H4.5V6.75C4.5 6.15326 4.73705 5.58097 5.15901 5.15901C5.58097 4.73705 6.15326 4.5 6.75 4.5Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-            </div>
-
-            <button
-              type="submit"
-              class="rounded-full p-3 border cursor-pointer bg-black"
-            >
-              <img src="img/search-white.svg" alt="" />
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div id="destination" class="container mx-auto my-12">
-      <div class="flex items-center justify-between mb-4">
-        <h1 class="font-semibold text-xl">Where is your next destination?</h1>
-        <a class="rounded-full p-2 border cursor-pointer border-slate-200">
-          <img src="img/left.svg" alt="" />
-        </a>
-      </div>
-      <div class="grid grid-cols-4 gap-4 my-4">
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- TOUR LISTING -->
-    <div id="tour listing" class="container mx-auto my-12">
-      <div class="flex items-center justify-between mb-4">
-        <h1 class="font-semibold text-xl">Tour Listing</h1>
-        <a class="rounded-full p-2 border cursor-pointer border-slate-200">
-          <img src="img/left.svg" alt="" />
-        </a>
-      </div>
+    <div id="tour listing" class="container mx-auto mt-28">
       <div class="grid grid-cols-4 gap-4 my-4">
         <div class="card rounded-2xl overflow-hidden">
           <div
@@ -494,149 +289,6 @@
             <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- TOUR LISTING -->
-
-    <!-- CATEGORY -->
-    <div id="category" class="container mx-auto my-12">
-      <div class="flex items-center justify-between mb-4">
-        <h1 class="font-semibold text-xl">Category</h1>
-        <a class="rounded-full p-2 border cursor-pointer border-slate-200">
-          <img src="img/left.svg" alt="" />
-        </a>
-      </div>
-      <div class="my-slider">
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-    <!-- CATEGORY -->
-
-    <!-- ATTRACTION -->
-    <div id="attraction" class="container mx-auto my-12">
-      <div class="flex items-center justify-between mb-4">
-        <h1 class="font-semibold text-xl">Attraction</h1>
-        <a class="rounded-full p-2 border cursor-pointer border-slate-200">
-          <img src="img/left.svg" alt="" />
-        </a>
-      </div>
-      <div class="grid grid-cols-4 gap-4 my-4">
         <div class="card rounded-2xl overflow-hidden">
           <div
             style="
@@ -851,76 +503,7 @@
         </div>
       </div>
     </div>
-    <!-- ATTRACTION -->
 
-    <!-- FEATURES -->
-    <div id="features" class="container mx-auto my-20">
-      <div class="grid grid-cols-3 gap-4">
-        <div class="flex-col py-8 px-10 rounded-2xl border border-slate-200">
-          <img src="img/features-1.png" class="mb-4 mx-auto" alt="" />
-          <h6 class="text-2xl font-semibold text-center mb-2">
-            Various destinations and activities
-          </h6>
-          <p class="text-center text-slate-400">
-            Discover breathtaking destinations around the globe, from pristine
-            beaches and lush jungles to charming historical cities and
-            captivating landscapes.
-          </p>
-        </div>
-        <div class="flex-col py-8 px-10 rounded-2xl border border-slate-200">
-          <img src="img/features-2.png" class="mb-4 mx-auto" alt="" />
-          <h6 class="text-2xl font-semibold text-center mb-2">
-            Flexibility on your budget
-          </h6>
-          <p class="text-center text-slate-400">
-            A wide range of choices, from budget experiences to luxury
-            experiences, guarantees that you'll find the ideal match for your
-            holiday needs
-          </p>
-        </div>
-        <div class="flex-col py-8 px-10 rounded-2xl border border-slate-200">
-          <img src="img/features-3.png" class="mb-4 mx-auto" alt="" />
-          <h6 class="text-2xl font-semibold text-center mb-2">
-            Trustworthy Data
-          </h6>
-          <p class="text-center text-slate-400">
-            We strive to present accurate and up-to-date data, empowering you to
-            make the right decisions for your travel.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- FEATURES -->
-    <div
-      id="upcoming"
-      class="container mx-auto my-20 rounded-2xl border overflow-hidden border-slate-200"
-    >
-      <div class="grid grid-cols-3 gap-4">
-        <div class="bg-colors-orange-custom/10 rounded-e-full pt-32 px-16">
-          <h6 class="text-2xl font-semibold mb-2">
-            Travel Itinerary: Your Guide to an Unforgettable Journey
-          </h6>
-          <p class="text-slate-400">
-            Embarking on a new adventure soon? Let our Travel Itinerary be your
-            ultimate guide to crafting an unforgettable journey
-          </p>
-        </div>
-        <div class="">
-          <img src="img/upcoming.png" class="p-8" alt="upcoming" />
-        </div>
-        <div class="bg-colors-orange-custom/10 rounded-s-full pt-32 px-16">
-          <h6 class="text-2xl font-semibold mb-2 text-end">
-            Price Comparison: Find your best deals
-          </h6>
-          <p class="text-slate-400 text-end">
-            Looking for the best deals on your next trip? Look no further! Our
-            website offers a feature allowing you to compare tour prices
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!--  -->
     <script src="index.js"></script>
   </body>
 </html>

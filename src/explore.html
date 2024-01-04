@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <script>
+      $(function () {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <style>
+      .accordion__content {
+        max-height: 0em;
+        transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+      }
+      input[name="panel"]:not(:checked) ~ .accordion__content {
+        max-height: 50em;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        z-index: 10;
+      }
+    </style>
+
+    <title>Project Tailwind dengan NPM</title>
+  </head>
+  <body>
+    <nav class="bg-white fixed top-0 w-full z-10 border-b border-slate-200">
+      <div class="container mx-auto flex justify-between items-center py-3">
+        <div style="width: 250px">
+          <img src="img/logo.svg" alt="" />
+        </div>
+        <ul class="flex gap-5 py-4 px-8 border rounded-full border-slate-200">
+          <li><a href="#" class="text-base text-gray-400">Home</a></li>
+          <li>
+            <a
+              href="#"
+              class="text-base font-semibold text-colors-orange-custom"
+              >Explore</a
+            >
+          </li>
+        </ul>
+        <div class="flex gap-3">
+          <a class="rounded-full p-4 border cursor-pointer border-slate-200">
+            <img src="img/search.svg" alt="" />
+          </a>
+          <a class="rounded-full p-4 border cursor-pointer border-slate-200">
+            <img src="img/heart.svg" alt="" />
+          </a>
+          <a
+            class="rounded-full px-8 py-4 cursor-pointer bg-colors-orange-custom text-white"
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CATEGORY -->
+    <div id="category" class="container mx-auto mt-32 mb-12">
+      <div class="my-slider">
+        <a
+          href="#"
+          class="border border-colors-orange-custom/20 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex items-center">
+            <img
+              class="rounded-r-full py-4 px-6 bg-colors-orange-custom/20"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold text-colors-orange-custom py-4 px-6">All</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour Teratur</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
+        >
+          <div class="flex">
+            <img
+              class="rounded-r-full py-4 px-6 bg-slate-100"
+              src="img/category-icon.svg"
+              alt=""
+            />
+            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- CATEGORY -->
+
+    <div class="grid grid-cols-12 gap-12 container mx-auto">
+      <div class="col-span-3">
+        <div class="border border-slate-200 rounded-2xl p-6">
+          <h1 class="font-semibold text-xl mb-4">Destination</h1>
+          <div class="accordion flex flex-col items-center justify-center">
+            <!--  Panel 1  -->
+            <div class="w-full">
+              <input type="checkbox" name="panel" id="panel-1" class="hidden" />
+              <div class="flex justify-between pt-4 px-4 cursor-pointer">
+                <div class="flex gap-2">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <img src="img/down.svg" id="panel-1-trigger" alt="" />
+              </div>
+              <div class="accordion__content overflow-hidden bg-grey-lighter">
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+              </div>
+            </div>
+            <!--  Panel 1  -->
+            <div class="w-full">
+              <input type="checkbox" name="panel" id="panel-2" class="hidden" />
+              <div class="flex justify-between pt-4 px-4 cursor-pointer">
+                <div class="flex gap-2">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <img src="img/down.svg" id="panel-2-trigger" alt="" />
+              </div>
+              <div class="accordion__content overflow-hidden bg-grey-lighter">
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+                <div class="flex gap-2 pt-4 pl-8">
+                  <input type="checkbox" name="" id="" />
+                  <label for="" class="relative block cursor-pointer"
+                    >Panel 1</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-9">
+        <div class="flex justify-between">
+          <div class="flex gap-2">
+            <div class="relative inline-block">
+              <input
+                id="datepicker"
+                type="text"
+                class="py-3 px-5 rounded-lg w-72 focus:ring-1 focus:ring-colors-orange-custom border outline-none border-gray-200"
+                placeholder="Enter your desired date"
+              />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                  position: absolute;
+                  right: 16px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                "
+              >
+                <path
+                  d="M7.872 13.4955C8.16977 13.4955 8.45535 13.3772 8.6659 13.1667C8.87646 12.9561 8.99475 12.6705 8.99475 12.3727C8.99475 12.075 8.87646 11.7894 8.6659 11.5788C8.45535 11.3683 8.16977 11.25 7.872 11.25C7.57423 11.25 7.28865 11.3683 7.0781 11.5788C6.86754 11.7894 6.74925 12.075 6.74925 12.3727C6.74925 12.6705 6.86754 12.9561 7.0781 13.1667C7.28865 13.3772 7.57423 13.4955 7.872 13.4955ZM8.9955 16.1235C8.9955 16.4213 8.87721 16.7068 8.66665 16.9174C8.4561 17.128 8.17052 17.2463 7.87275 17.2463C7.57498 17.2463 7.2894 17.128 7.07885 16.9174C6.86829 16.7068 6.75 16.4213 6.75 16.1235C6.75 15.8257 6.86829 15.5402 7.07885 15.3296C7.2894 15.119 7.57498 15.0007 7.87275 15.0007C8.17052 15.0007 8.4561 15.119 8.66665 15.3296C8.87721 15.5402 8.9955 15.8257 8.9955 16.1235ZM12 13.494C12.2976 13.494 12.583 13.3758 12.7934 13.1654C13.0038 12.955 13.122 12.6696 13.122 12.372C13.122 12.0744 13.0038 11.789 12.7934 11.5786C12.583 11.3682 12.2976 11.25 12 11.25C11.7022 11.25 11.4167 11.3683 11.2061 11.5788C10.9955 11.7894 10.8773 12.075 10.8773 12.3727C10.8773 12.6705 10.9955 12.9561 11.2061 13.1667C11.4167 13.3772 11.7022 13.494 12 13.494ZM13.1235 16.122C13.1235 16.4198 13.0052 16.7053 12.7947 16.9159C12.5841 17.1265 12.2985 17.2448 12.0007 17.2448C11.703 17.2448 11.4174 17.1265 11.2068 16.9159C10.9963 16.7053 10.878 16.4198 10.878 16.122C10.878 15.8242 10.9963 15.5387 11.2068 15.3281C11.4174 15.1175 11.703 14.9993 12.0007 14.9993C12.2985 14.9993 12.5841 15.1175 12.7947 15.3281C13.0052 15.5387 13.1235 15.8242 13.1235 16.122ZM16.1235 13.494C16.4213 13.494 16.7068 13.3757 16.9174 13.1652C17.128 12.9546 17.2463 12.669 17.2463 12.3713C17.2463 12.0735 17.128 11.7879 16.9174 11.5773C16.7068 11.3668 16.4213 11.2485 16.1235 11.2485C15.8257 11.2485 15.5402 11.3668 15.3296 11.5773C15.119 11.7879 15.0007 12.0735 15.0007 12.3713C15.0007 12.669 15.119 12.9546 15.3296 13.1652C15.5402 13.3757 15.8257 13.494 16.1235 13.494ZM21 6.75C21 5.75544 20.6049 4.80161 19.9016 4.09835C19.1984 3.39509 18.2446 3 17.25 3H6.75C5.75544 3 4.80161 3.39509 4.09835 4.09835C3.39509 4.80161 3 5.75544 3 6.75V17.25C3 18.2446 3.39509 19.1984 4.09835 19.9016C4.80161 20.6049 5.75544 21 6.75 21H17.25C18.2446 21 19.1984 20.6049 19.9016 19.9016C20.6049 19.1984 21 18.2446 21 17.25V6.75ZM4.5 9H19.5V17.25C19.5 17.8467 19.2629 18.419 18.841 18.841C18.419 19.2629 17.8467 19.5 17.25 19.5H6.75C6.15326 19.5 5.58097 19.2629 5.15901 18.841C4.73705 18.419 4.5 17.8467 4.5 17.25V9ZM6.75 4.5H17.25C17.8467 4.5 18.419 4.73705 18.841 5.15901C19.2629 5.58097 19.5 6.15326 19.5 6.75V7.5H4.5V6.75C4.5 6.15326 4.73705 5.58097 5.15901 5.15901C5.58097 4.73705 6.15326 4.5 6.75 4.5Z"
+                  fill="#B5BAC3"
+                />
+              </svg>
+            </div>
+
+            <div class="dropdown inline-block relative">
+              <button
+                class="border-slate-200 border text-gray-700 py-3 px-5 rounded-lg inline-flex items-center"
+              >
+                <span class="mr-16">Price</span>
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+              <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                <li class="">
+                  <a
+                    class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="#"
+                    >One</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="#"
+                    >Two</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="#"
+                    >Three is the magic number</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown inline-block relative">
+            <button
+              class="border-slate-200 border text-gray-700 py-3 px-5 rounded-lg inline-flex items-center"
+            >
+              <span class="mr-16">Sort by</span>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </button>
+            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+              <li class="">
+                <a
+                  class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                  href="#"
+                  >One</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                  href="#"
+                  >Two</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                  href="#"
+                  >Three is the magic number</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 py-4">
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+          <div class="card rounded-2xl overflow-hidden">
+            <div
+              style="
+                height: 200px;
+                background: url('img/bromo.png');
+                background-size: cover;
+              "
+              class="relative"
+            >
+              <div class="p-4 right-0 absolute">
+                <div
+                  class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
+                >
+                  <div class="click">
+                    <span class="fa fa-heart-o"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border border-neutral-200 rounded-b-2xl">
+              <div class="flex gap-2 items-center mb-2">
+                <h6 class="text-sm text-neutral-400">Tour</h6>
+                <svg
+                  width="5"
+                  height="6"
+                  viewBox="0 0 5 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
+                    fill="#B5BAC3"
+                  />
+                </svg>
+                <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              </div>
+              <h6 class="text-lg font-bold text-neutral-800 mb-2">
+                Merapi Mount Tour
+              </h6>
+
+              <div class="flex gap-2 items-center mb-2">
+                <div class="flex items-baseline gap-2">
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                  <img src="img/star.svg" alt="" />
+                </div>
+                <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              </div>
+              <h6 class="text-2xl font-bold text-neutral-800 mb-2">
+                Rp300.000
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+
+    <!--  -->
+    <script src="index.js"></script>
+  </body>
+</html>
