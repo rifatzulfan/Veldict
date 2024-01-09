@@ -72,5 +72,14 @@
     transition: all 0.32s ease;
   }
 
-  
+  .label-floating input:not(:placeholder-shown) {
+    padding-top: 1.5rem;
+  }
+  .label-floating input:not(:placeholder-shown) ~ label {
+    font-size: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    padding-top: 0.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+  }
 }
