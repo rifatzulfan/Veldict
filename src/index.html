@@ -23,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script>
       $(function () {
         $("#datepicker").datepicker();
@@ -265,77 +266,52 @@
           <img src="img/left.svg" alt="" />
         </a>
       </div>
-      <div class="grid grid-cols-4 gap-4 my-4">
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
-        <div
-          style="
-            height: 240px;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.5) 100%
-              ),
-              url('img/sgp.png');
-            background-size: cover;
-          "
-          class="rounded-xl relative"
-        >
-          <div class="p-8 bottom-0 absolute">
-            <h6 class="text-white font-semibold text-2xl">Singapore</h6>
-          </div>
-        </div>
+      <div id="destination-container" class="grid grid-cols-4 gap-4 my-4">
+        <!-- The dynamic content will be inserted here -->
       </div>
     </div>
+    
+    <!-- API /next-destination -->
+    <script>
+      // Your Axios request and dynamic content update code goes here
+      const destinationContainer = document.getElementById('destination-container');
+    
+      axios.get("http://127.0.0.1:8000/next-destination")
+        .then(function (response) {
+          const destinationData = response.data.data;
+    
+          // Loop through the array and create HTML elements for each object
+          destinationData.forEach(element => {
+            const destinationDiv = document.createElement('div');
+            destinationDiv.style = `
+              height: 240px;
+              background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0) 0%,
+                  rgba(0, 0, 0, 0.5) 100%
+                ),
+                url('${element.image}');
+              background-size: cover;
+            `;
+            destinationDiv.classList.add('rounded-xl', 'relative');
+    
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('p-8', 'bottom-0', 'absolute');
+    
+            const destinationName = document.createElement('h6');
+            destinationName.classList.add('text-white', 'font-semibold', 'text-2xl');
+            destinationName.innerText = element.name;
+    
+            contentDiv.appendChild(destinationName);
+            destinationDiv.appendChild(contentDiv);
+            destinationContainer.appendChild(destinationDiv);
+          });
+        })
+        .catch(function (error) {
+          console.error('Error fetching next destinations:', error);
+        });
+    </script>
+    
 
     <!-- TOUR LISTING -->
     <div id="tour listing" class="container mx-auto my-12">
@@ -345,222 +321,70 @@
           <img src="img/left.svg" alt="" />
         </a>
       </div>
-      <div class="grid grid-cols-4 gap-4 my-4">
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+      
+      <div id="tourListings" class="grid grid-cols-4 gap-4 my-4"></div>
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+      <script>
+        const tourListings = document.getElementById('tourListings');
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+        axios.get("http://localhost:8000/tour-listing")
+          .then(function (response) {
+            const tourData = response.data.data;
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-      </div>
+            // Loop through the array and create HTML elements for each object
+            tourData.forEach(tour => {
+              const card = document.createElement('div');
+              card.className = 'card rounded-2xl overflow-hidden';
+
+              // Add background image dynamically
+              card.innerHTML = `
+                <div style="height: 200px; background: url('img/bromo.png'); background-size: cover;" class="relative">
+                  <div class="p-4 right-0 absolute">
+                    <div class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer">
+                      <div class="click">
+                        <span class="fa fa-heart-o"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-4 border border-neutral-200 rounded-b-2xl">
+                  <div class="flex gap-2 items-center mb-2">
+                    <h6 class="text-sm text-neutral-400">${tour.city}</h6>
+                    <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z" fill="#B5BAC3"/>
+                    </svg>
+                    <h6 class="text-sm text-neutral-400">${tour.tour_name}</h6>
+                  </div>
+                  <h6 class="text-lg font-bold text-neutral-800 mb-2">${tour.tour_name}</h6>
+
+                  <div class="flex gap-2 items-center mb-2">
+                    <div class="flex items-baseline gap-2">
+                      ${generateStarRating(tour.star_review)}
+                    </div>
+                    <h6 class="text-sm text-neutral-400">(${tour.total_review} Review)</h6>
+                  </div>
+                  <h6 class="text-2xl font-bold text-neutral-800 mb-2">${tour.price}</h6>
+                </div>
+              `;
+
+              tourListings.appendChild(card);
+            });
+          })
+          .catch(function (error) {
+            console.error('Error fetching tour listings:', error);
+          });
+
+        // Function to generate star rating
+        function generateStarRating(starCount) {
+          let starsHtml = '';
+          for (let i = 0; i < starCount; i++) {
+            starsHtml += '<img src="img/star.svg" alt="Star" />';
+          }
+          return starsHtml;
+        }
+      </script>
     </div>
-    <!-- TOUR LISTING -->
 
     <!-- CATEGORY -->
     <div id="category" class="container mx-auto my-12">
@@ -570,125 +394,49 @@
           <img src="img/left.svg" alt="" />
         </a>
       </div>
-      <div class="my-slider">
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden"
-        >
-          <div class="flex">
-            <img
-              class="rounded-r-full py-4 px-6 bg-slate-100"
-              src="img/category-icon.svg"
-              alt=""
-            />
-            <h6 class="text-lg font-semibold py-4 px-6">Day Tour</h6>
-          </div>
-        </a>
-      </div>
+      <div class="my-slider"></div>
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+      <script type="text/javascript">
+        const categorySlider = $('.my-slider');
+
+        axios.get("http://localhost:8000/category")
+          .then(function (response) {
+            const categoryData = response.data.data;
+
+            // Loop through the array and create HTML elements for each object
+            categoryData.forEach(category => {
+              const categoryLink = document.createElement('a');
+              categoryLink.href = '#';
+              categoryLink.className = 'border flex items-center gap-1 border-slate-100 mr-4 rounded-xl overflow-hidden';
+
+              // Add content dynamically
+              categoryLink.innerHTML = `
+                <div class="flex">
+                  <img class="rounded-r-full py-4 px-6 bg-slate-100" src="img/category-icon.svg" alt="" />
+                  <h6 class="text-lg font-semibold py-4 px-6">${category.category_name}</h6>
+                </div>
+              `;
+
+              categorySlider.slick('slickAdd', categoryLink);
+            });
+
+            // Initialize Slick Carousel
+            categorySlider.slick({
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+              arrows: true,
+            });
+
+          })
+          .catch(function (error) {
+            console.error('Error fetching category listings:', error);
+          });
+      </script>
+
     </div>
     <!-- CATEGORY -->
 
@@ -700,7 +448,7 @@
           <img src="img/left.svg" alt="" />
         </a>
       </div>
-      <div class="grid grid-cols-4 gap-4 my-4">
+      <!-- <div class="grid grid-cols-4 gap-4 my-4">
         <div class="card rounded-2xl overflow-hidden">
           <div
             style="
@@ -754,19 +502,27 @@
             <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
           </div>
         </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
+      </div> -->
+      <div class="grid grid-cols-4 gap-4 my-4" id="attractionList"></div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+  const attractionList = document.getElementById('attractionList');
+
+  axios.get("http://localhost:8000/attraction")
+    .then(function (response) {
+      const attractionData = response.data.data;
+
+      // Loop through the array and create HTML elements for each object
+      attractionData.forEach(attraction => {
+        const card = document.createElement('div');
+        card.className = 'card rounded-2xl overflow-hidden';
+
+        // Add content dynamically
+        card.innerHTML = `
+          <div style="height: 200px; background: url('img/bromo.png'); background-size: cover;" class="relative">
             <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
+              <div class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer">
                 <div class="click">
                   <span class="fa fa-heart-o"></span>
                 </div>
@@ -775,145 +531,40 @@
           </div>
           <div class="p-4 border border-neutral-200 rounded-b-2xl">
             <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
+              <h6 class="text-sm text-neutral-400">${attraction.city}</h6>
+              <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z" fill="#B5BAC3"/>
               </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
+              <h6 class="text-sm text-neutral-400">${attraction.tour_name}</h6>
             </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+            <h6 class="text-lg font-bold text-neutral-800 mb-2">${attraction.tour_name}</h6>
 
             <div class="flex gap-2 items-center mb-2">
               <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
+                ${generateStarRating(attraction.star_review)}
               </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
+              <h6 class="text-sm text-neutral-400">(${attraction.total_review} Review)</h6>
             </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
+            <h6 class="text-2xl font-bold text-neutral-800 mb-2">${attraction.price}</h6>
           </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+        `;
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden">
-          <div
-            style="
-              height: 200px;
-              background: url('img/bromo.png');
-              background-size: cover;
-            "
-            class="relative"
-          >
-            <div class="p-4 right-0 absolute">
-              <div
-                class="rounded-full p-3 backdrop-blur-md bg-neutral-800/20 cursor-pointer"
-              >
-                <div class="click">
-                  <span class="fa fa-heart-o"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 border border-neutral-200 rounded-b-2xl">
-            <div class="flex gap-2 items-center mb-2">
-              <h6 class="text-sm text-neutral-400">Tour</h6>
-              <svg
-                width="5"
-                height="6"
-                viewBox="0 0 5 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.158 2.936C0.158 2.612 0.218 2.308 0.338 2.024C0.462 1.74 0.628 1.492 0.836 1.28C1.048 1.068 1.294 0.902 1.574 0.782C1.854 0.658 2.154 0.596 2.474 0.596C2.794 0.596 3.096 0.658 3.38 0.782C3.664 0.902 3.91 1.068 4.118 1.28C4.33 1.492 4.496 1.74 4.616 2.024C4.74 2.308 4.802 2.612 4.802 2.936C4.802 3.256 4.74 3.556 4.616 3.836C4.496 4.116 4.33 4.362 4.118 4.574C3.91 4.786 3.664 4.954 3.38 5.078C3.096 5.198 2.794 5.258 2.474 5.258C2.154 5.258 1.854 5.198 1.574 5.078C1.294 4.954 1.048 4.786 0.836 4.574C0.628 4.362 0.462 4.116 0.338 3.836C0.218 3.556 0.158 3.256 0.158 2.936Z"
-                  fill="#B5BAC3"
-                />
-              </svg>
-              <h6 class="text-sm text-neutral-400">Kab Magelang</h6>
-            </div>
-            <h6 class="text-lg font-bold text-neutral-800 mb-2">
-              Merapi Mount Tour
-            </h6>
+        attractionList.appendChild(card);
+      });
+    })
+    .catch(function (error) {
+      console.error('Error fetching attraction listings:', error);
+    });
 
-            <div class="flex gap-2 items-center mb-2">
-              <div class="flex items-baseline gap-2">
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-                <img src="img/star.svg" alt="" />
-              </div>
-              <h6 class="text-sm text-neutral-400">(3178 Review)</h6>
-            </div>
-            <h6 class="text-2xl font-bold text-neutral-800 mb-2">Rp300.000</h6>
-          </div>
-        </div>
-      </div>
+  // Function to generate star rating
+  function generateStarRating(starCount) {
+    let starsHtml = '';
+    for (let i = 0; i < starCount; i++) {
+      starsHtml += '<img src="img/star.svg" alt="Star" />';
+    }
+    return starsHtml;
+  }
+</script>
     </div>
     <!-- ATTRACTION -->
 
