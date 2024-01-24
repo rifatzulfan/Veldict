@@ -276,7 +276,7 @@
       // Your Axios request and dynamic content update code goes here
       const destinationContainer = document.getElementById('destination-container');
     
-      axios.get("http://127.0.0.1:8000/next-destination")
+      axios.get("http://156.67.217.135:8000/next-destination")
         .then(function (response) {
           const destinationData = response.data.data;
     
@@ -328,7 +328,7 @@
       <script>
         const tourListings = document.getElementById('tourListings');
 
-        axios.get("http://localhost:8000/tour-listing")
+        axios.get("http://156.67.217.135:8000/tour-listing")
           .then(function (response) {
             const tourData = response.data.data;
 
@@ -401,7 +401,7 @@
       <script type="text/javascript">
         const categorySlider = $('.my-slider');
 
-        axios.get("http://localhost:8000/category")
+        axios.get("http://156.67.217.135:8000/category")
           .then(function (response) {
             const categoryData = response.data.data;
 
@@ -509,7 +509,7 @@
 <script type="text/javascript">
   const attractionList = document.getElementById('attractionList');
 
-  axios.get("http://localhost:8000/attraction")
+  axios.get("http://156.67.217.135:8000/attraction")
     .then(function (response) {
       const attractionData = response.data.data;
 
